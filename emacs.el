@@ -86,6 +86,7 @@
 ;(setq view-read-only t)
 ;(setq print-escape-newlines t)
 (setq inhibit-startup-message t)
+(setq initial-scratch-message nil)
 (setq apropos-do-all t)
 ;(partial-completion-mode t)
 (setq focus-follows-mouse nil)
