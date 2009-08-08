@@ -1,0 +1,20 @@
+!
+! mod1 Alt
+! mod2 Num_Lock
+! mod3 Hiragana_Katakana
+! mod4 Meta
+! mod5 Scroll_Lock
+!
+
+clear control
+clear lock
+clear mod1
+clear mod3
+clear mod4
+
+keycode 101 = Alt_R
+keycode 100 = Control_R 
+keycode 102 = Control_L
+
+add control = Control_L Control_R
+add mod1 = Alt_L Alt_R
