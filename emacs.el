@@ -196,7 +196,8 @@
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
 ;; browse-url
-;(setq browse-url-browser-function 'w3m-browse-url)
+(setq browse-url-generic-program "xdg-open")
+(setq browse-url-browser-function 'browse-url-generic)
 
 ;; shell
 (add-hook 'shell-mode-hook
