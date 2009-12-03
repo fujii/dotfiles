@@ -247,6 +247,13 @@
 
 ;; magit
 (autoload 'magit-status "magit" nil t)
+(defface magit-item-highlight
+  '((((class color) (background light))
+     :background "gray95")
+    (((class color) (background dark))
+     :background "gray7"))
+  "Face for highlighting the current item."
+  :group 'magit)
 
 ;; navi2ch
 (autoload 'navi2ch "navi2ch" nil t)
