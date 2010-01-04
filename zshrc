@@ -4,9 +4,6 @@ export LESS='-i -z-3'
 export LS_COLORS="di=1;36:ln=01;32:ex=1:"
 #export PAGER=jless
 
-PS1="%n@%m %(!.#.$) "
-PS1=$'%{\e[1m%}'$PS1$'%{\e[0m%}'
-RPS1=' %~'
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -98,10 +95,14 @@ bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 
 ## Emacs
-if test "$EMACS" = t
+if test "$EMACS" = t -o "$TERM" = dumb
 then
     PS1="%n@%m %(!.#.$) "
-    RPS1=''
+    RPS1=
     alias ls='ls -F'
+    unsetopt zle
+else
+    PS1="%n@%m %(!.#.$) "
+    PS1=$'%{\e[1m%}'$PS1$'%{\e[0m%}'
+    RPS1=' %~'
 fi
-
