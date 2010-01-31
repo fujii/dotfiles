@@ -116,7 +116,8 @@
 (defun FUJII-scratch ()
   "Switch to the buffer *scratch*."
   (interactive)
-  (let ((default-major-mode 'lisp-interaction-mode))
+  (let ((default-major-mode 'lisp-interaction-mode)
+	(default-directory "~/"))
     (switch-to-buffer "*scratch*")))
 
 ;; electric-bufffer-list
