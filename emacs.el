@@ -198,7 +198,11 @@
 
 ;; browse-url
 (setq browse-url-generic-program "xdg-open")
-(setq browse-url-browser-function 'browse-url-generic)
+(setq browse-url-browser-function
+      (cond
+       ((memq system-type '(windows-nt ms-dos cygwin)) 'browse-url-default-windows-browser)
+       ((memq system-type '(darwin)) 'browse-url-default-macosx-browser)
+       (t 'browse-url-generic)))
 
 ;; shell
 (add-hook 'shell-mode-hook
