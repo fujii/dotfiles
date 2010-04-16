@@ -247,6 +247,9 @@
 ;(setq its-hira-comma  ", ")
 (setq quail-japanese-use-double-n t)
 
+;; vc
+(setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
+
 ;; aHg
 (autoload 'ahg-status "ahg" nil t)
 
