@@ -90,6 +90,7 @@
 (setq apropos-do-all t)
 ;(partial-completion-mode t)
 (setq focus-follows-mouse nil)
+(setq x-select-enable-clipboard t)
 (setq custom-file "~/.emacs.d/custom.el")
 
 (add-to-list 'initial-frame-alist
