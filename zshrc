@@ -72,6 +72,12 @@ setopt autopushd  pushdsilent pushdignoredups
 setopt printeightbit
 setopt nopromptcr
 
+#
+__git_files () {
+  local expl
+  _wanted files expl 'file' _files
+}
+
 autoload -U compinit
 compinit -u
 
