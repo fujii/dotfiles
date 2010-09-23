@@ -71,6 +71,7 @@ setopt nohup
 setopt autopushd  pushdsilent pushdignoredups
 setopt printeightbit
 setopt nopromptcr
+setopt sharehistory
 
 #
 __git_files () {
