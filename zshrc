@@ -12,7 +12,7 @@ DIRSTACKSIZE=20
 ZLS_COLORS=$LS_COLORS
 WORDCHARS='*?~=!#$%^'
 
-#fpath=($fpath ~/.zfunc)
+fpath=(~/opt/share/zsh/functions $fpath)
 
 ## Search path for the cd command
 #cdpath=(.. ~ )
