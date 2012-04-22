@@ -4,12 +4,14 @@ XTerm*eightBitInput: false
 XTerm*altIsNotMeta: true
 XTerm*metaSendsEscape: true
 XTerm*altSendsEscape: true
+XTerm*customization: 
+
 
 *VT100.utf8Fonts.font:	-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 
-!Emacs.menuBar: off
-Emacs.toolBar: off
-Emacs.font: fontset-standard
-Emacs.reverseVideo: on
-Emacs.Geometry: 137x61
-!Emacs.Foreground: black
+!emacs.menuBar: off
+emacs.toolBar: off
+emacs.font: fontset-standard
+emacs.reverseVideo: on
+emacs.Geometry: 200x60
+!emacs.Foreground: black
