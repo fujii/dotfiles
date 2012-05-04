@@ -95,7 +95,7 @@
 (setq wl-interactive-send t)
 
 ;; Create opened thread.
-;(setq wl-thread-insert-opened t)
+(setq wl-thread-insert-opened t)
 
 ;; Keep folder window beside summary. (3 pane)
 ;(setq wl-stay-folder-window t)
