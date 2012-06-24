@@ -233,13 +233,6 @@
 ;(setq Info-additional-directory-list
 ;      '("~/usr/info" "~/usr/share/info"))
 
-;; elisp-info
-(autoload 'elisp-info-describe-function "elisp-info" nil t)
-(autoload 'elisp-info-describe-variable "elisp-info" nil t)
-
-;; cymemo
-(autoload 'cymemo "cymemo" nil t)
-
 ;; egg
 (load "egg/leim-list")
 (setq default-input-method "japanese-egg-anthy")
@@ -251,9 +244,6 @@
 ;; vc
 (setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
 
-;; aHg
-(autoload 'ahg-status "ahg" nil t)
-
 ;; magit
 (autoload 'magit-status "magit" nil t)
 (defface magit-item-highlight
@@ -263,9 +253,6 @@
      :background "gray7"))
   "Face for highlighting the current item."
   :group 'magit)
-
-;; navi2ch
-(autoload 'navi2ch "navi2ch" nil t)
 
 ;; UTF-8
 (when (fboundp 'utf-translate-cjk-set-unicode-range)
