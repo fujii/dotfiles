@@ -278,11 +278,11 @@
      (?\x2600 . ?\x26ff))))
 
 ;;; IME
-(when (fboundp 'mw32-ime-initialize)
-  (setq default-input-method "MW32-IME")
-  (setq-default mw32-ime-mode-line-state-indicator "[--]")
-  (setq mw32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
-  (mw32-ime-initialize)
+(when (fboundp 'w32-ime-initialize)
+  (setq default-input-method "W32-IME")
+  (setq-default w32-ime-mode-line-state-indicator "[--]")
+  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+  (w32-ime-initialize)
 
   (wrap-function-to-control-ime 'y-or-n-p nil nil)
   (wrap-function-to-control-ime 'yes-or-no-p nil nil)
@@ -292,52 +292,6 @@
   (wrap-function-to-control-ime 'read-key-sequence nil nil)
   (wrap-function-to-control-ime 'map-y-or-n-p nil nil)
   (wrap-function-to-control-ime 'read-passwd t t) ; don't work as we expect.
-  )
-
-(when (featurep 'meadow)
-  (setq w32-hide-mouse-on-key t)
-  (setq w32-hide-mouse-timeout 5000)
-
-  (add-hook 'mw32-ime-on-hook
-           (function (lambda () (set-cursor-height 2))))
-  (add-hook 'mw32-ime-off-hook
-           (function (lambda () (set-cursor-height 4))))
-
-  (w32-add-font
-   "MS Gothic 16"
-   '((spec
-      ((:char-spec ascii :height any)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 400 0 nil nil nil 0 1 3 0))
-      ((:char-spec ascii :height any :weight bold)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 700 0 nil nil nil 0 1 3 0)
-       ((spacing . -1)))
-      ((:char-spec ascii :height any :slant italic)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 400 0   t nil nil 0 1 3 0))
-      ((:char-spec ascii :height any :weight bold :slant italic)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 700 0   t nil nil 0 1 3 0)
-       ((spacing . -1)))
-      ((:char-spec japanese-jisx0208 :height any)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 400 0 nil nil nil 128 1 3 0))
-      ((:char-spec japanese-jisx0208 :height any :weight bold)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 700 0 nil nil nil 128 1 3 0)
-       ((spacing . -1)))
-      ((:char-spec japanese-jisx0208 :height any :slant italic)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 400 0   t nil nil 128 1 3 0))
-      ((:char-spec japanese-jisx0208 :height any :weight bold :slant italic)
-       strict
-       (w32-logfont "MS Gothic" 0 -16 700 0   t nil nil 128 1 3 0)
-       ((spacing . -1))))))
-
-  (setq default-frame-alist
-       (append (list '(font . "MS Gothic 16"))
-               default-frame-alist))
   )
 
 (setq w32-recognize-altgr nil)         ; for NTEmacs
