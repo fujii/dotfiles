@@ -149,12 +149,13 @@
 ;(add-to-list 'c-default-style '(c++-mode . "vs2005-c++-smart"))
 
 (defun local-cc-mode-hook ()
-  (let ((case-fold-search t))
-    (catch 'exit
-      (mapcar (lambda (e)
-		(when (string-match (car e) buffer-file-name)
-		  (c-set-style (cdr e))
-		  (throw 'exit nil))) local-cc-mode-style-alist))))
+  (when buffer-file-name
+    (let ((case-fold-search t))
+      (catch 'exit
+	(mapcar (lambda (e)
+		  (when (string-match (car e) buffer-file-name)
+		    (c-set-style (cdr e))
+		    (throw 'exit nil))) local-cc-mode-style-alist)))))
 
 (add-hook 'c-mode-hook 'local-cc-mode-hook)
 (add-hook 'c++-mode-hook 'local-cc-mode-hook)
