@@ -234,9 +234,11 @@
 ;      '("~/usr/info" "~/usr/share/info"))
 
 ;; egg
-(load "egg/leim-list")
-(setq default-input-method "japanese-egg-anthy")
-(setq its-hira-enable-zenkaku-alphabet nil)
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
+;(load "egg/leim-list")
+;(setq default-input-method "japanese-egg-anthy")
+;(setq its-hira-enable-zenkaku-alphabet nil)
 ;(setq its-hira-period ". ")
 ;(setq its-hira-comma  ", ")
 (setq quail-japanese-use-double-n t)
