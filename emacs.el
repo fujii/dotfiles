@@ -39,7 +39,6 @@
 (define-key global-map "\C-cm" 'wl)
 (define-key global-map "\C-cn" 'navi2ch)
 (define-key global-map "\C-co" 'occur)
-(define-key global-map "\C-cp" 'p4-prefix-map)
 (define-key global-map "\C-cq" 'query-replace-regexp)
 ;(define-key global-map "\C-cr" 'man);
 (define-key global-map "\C-cs" 'FUJII-scratch)
@@ -220,9 +219,6 @@
 ;; woman
 (setq woman-use-own-frame nil)
 (setq woman-use-topic-at-point t)
-
-;; p4
-(require 'p4 nil t)
 
 ;; wl
 (if (boundp 'mail-user-agent)
