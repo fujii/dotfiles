@@ -112,6 +112,11 @@
 ;; env
 ;(setenv "PAGER" "cat")
 
+;; package
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 ;; misc function
 
 (defun FUJII-scratch ()
