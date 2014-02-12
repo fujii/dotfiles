@@ -125,6 +125,15 @@
 	(default-directory "~/"))
     (switch-to-buffer "*scratch*")))
 
+(defun kill-all-unmodified-buffers ()
+  (interactive)
+  (mapc (lambda (b)
+	  (or (buffer-modified-p b)
+	      (string= (substring (buffer-name b) 0 1) " ")
+	      (kill-buffer b)))
+	(buffer-list)))
+
+
 ;; electric-bufffer-list
 (add-hook 'electric-buffer-menu-mode-hook 'forward-line)
 
