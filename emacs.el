@@ -135,9 +135,12 @@
 ;;; indent settings for C
 (require 'cc-mode)
 (c-add-style "webkit"
-            '("stroustrup"
-              (indent-tabs-mode . nil)
-              (c-offsets-alist (innamespace . 0))))
+	     '("stroustrup"
+	       (indent-tabs-mode . nil)
+	       (c-offsets-alist
+		(innamespace . 0)
+		(arglist-cont . +)
+		(arglist-cont-nonempty . +))))
 (c-add-style "vs2005-c++-smart"
             '("stroustrup"
               (tab-width . 4)
