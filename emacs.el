@@ -259,14 +259,12 @@
 ;      '("~/usr/info" "~/usr/share/info"))
 
 ;; egg
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
 ;(load "egg/leim-list")
 ;(setq default-input-method "japanese-egg-anthy")
 ;(setq its-hira-enable-zenkaku-alphabet nil)
 ;(setq its-hira-period ". ")
 ;(setq its-hira-comma  ", ")
-(setq quail-japanese-use-double-n t)
+;(setq quail-japanese-use-double-n t)
 
 ;; vc
 (setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
@@ -304,8 +302,9 @@
      (?\x25a0 . ?\x25ff)
      (?\x2600 . ?\x26ff))))
 
-;;; IME
-(when (fboundp 'w32-ime-initialize)
+
+(cond
+ ((fboundp 'w32-ime-initialize)
   (setq default-input-method "W32-IME")
   (setq-default w32-ime-mode-line-state-indicator "[--]")
   (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
@@ -320,5 +319,7 @@
   (wrap-function-to-control-ime 'map-y-or-n-p nil nil)
   (wrap-function-to-control-ime 'read-passwd t t) ; don't work as we expect.
   )
+ ((require 'mozc nil t)
+  (setq default-input-method "japanese-mozc")))
 
 (setq w32-recognize-altgr nil)         ; for NTEmacs
