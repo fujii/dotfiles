@@ -134,6 +134,16 @@
 	(buffer-list)))
 
 
+;; dired
+(defun dired-custom-execute-file (&optional arg)
+  (interactive "P")
+  (mapcar (lambda (file)
+	    (call-process (if (eq system-type 'windows-nt) "explorer" "xdg-open")
+			  nil nil nil (convert-standard-filename file)))
+	  (dired-get-marked-files nil arg)))
+
+(add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map "X" 'dired-custom-execute-file)))
+
 ;; electric-bufffer-list
 (add-hook 'electric-buffer-menu-mode-hook 'forward-line)
 
