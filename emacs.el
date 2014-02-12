@@ -91,6 +91,7 @@
 (setq focus-follows-mouse nil)
 (setq x-select-enable-clipboard t)
 (setq custom-file "~/.emacs.d/custom.el")
+(setq split-width-threshold nil)
 
 (add-to-list 'initial-frame-alist
 	     '(reverse . t))
