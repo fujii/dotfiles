@@ -9,9 +9,8 @@ XTerm*customization:
 
 *VT100.utf8Fonts.font:	-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 
-!emacs.menuBar: off
-emacs.toolBar: off
-emacs.font: fontset-standard
-emacs.reverseVideo: on
-emacs.Geometry: 200x60
-!emacs.Foreground: black
+Emacs24*menuBar: off
+Emacs24*toolBar: off
+Emacs24*font: fontset-standard
+Emacs24*reverseVideo: on
+Emacs24*Geometry: 165x44
