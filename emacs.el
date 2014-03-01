@@ -89,9 +89,12 @@
 (setq apropos-do-all t)
 ;(partial-completion-mode t)
 (setq focus-follows-mouse nil)
-(setq x-select-enable-clipboard t)
 (setq custom-file "~/.emacs.d/custom.el")
 (setq split-width-threshold nil)
+
+; Emacs does not exit promptly. The message "Saving clipboard to X clipboard manager..." is shown.
+(setq x-select-enable-clipboard t)
+(setq x-select-enable-clipboard-manager nil)
 
 (add-to-list 'initial-frame-alist
 	     '(reverse . t))
