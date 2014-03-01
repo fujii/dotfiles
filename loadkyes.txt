@@ -1,0 +1,4 @@
+keymaps 0-127
+keycode 92 = Control
+keycode 93 = Alt
+keycode 94 = Control
