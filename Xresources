@@ -13,4 +13,4 @@ Emacs24*menuBar: off
 Emacs24*toolBar: off
 Emacs24*font: fontset-standard
 Emacs24*reverseVideo: on
-Emacs24*Geometry: 165x44
+Emacs24*Geometry: 165x60
