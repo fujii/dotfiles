@@ -1,6 +1,6 @@
 ##  -*- shell-script -*-
 
-export LESS='-i -z-3'
+export LESS='-i -z-3 -R'
 export LS_COLORS="di=1;36:ln=01;32:ex=1:"
 #export PAGER=jless
 
