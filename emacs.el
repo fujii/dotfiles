@@ -64,12 +64,12 @@
   (terminal-init-bobcat))
 
 ;; face
-(setq default-frame-background-mode 'dark)
+(unless window-system
+  (setq frame-background-mode 'dark))
 (global-font-lock-mode 1)
 (set-face-foreground 'font-lock-comment-face "pink")
 
 ;; misc
-(set-scroll-bar-mode 'right)
 ;(tooltip-mode 0)
 (auto-compression-mode 1)
 ;(auto-image-file-mode 1)
@@ -96,8 +96,10 @@
 (setq x-select-enable-clipboard t)
 (setq x-select-enable-clipboard-manager nil)
 
-(add-to-list 'initial-frame-alist
-	     '(reverse . t))
+(when window-system
+  (set-scroll-bar-mode 'right)
+  (add-to-list 'initial-frame-alist
+	       '(reverse . t)))
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
