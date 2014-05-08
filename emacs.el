@@ -18,7 +18,7 @@
 (define-key global-map "\C-x\C-b" 'electric-buffer-list)
 
 (define-key global-map "\C-ca" 'apropos)
-(define-key global-map "\C-cb" 'iswitchb-buffer)
+;(define-key global-map "\C-cb" 'iswitchb-buffer)
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cd" 'calendar);
 (define-key global-map "\C-ce" 'eshell)
