@@ -327,4 +327,5 @@
  ((require 'mozc nil t)
   (setq default-input-method "japanese-mozc")))
 
-(setq w32-recognize-altgr nil)         ; for NTEmacs
+(when (eq system-type 'windows-nt)
+  (setq w32-recognize-altgr nil))
