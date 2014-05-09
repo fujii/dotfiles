@@ -2,7 +2,6 @@
 
 export LESS='-i -z-3 -R'
 export LS_COLORS="di=1;36:ln=01;32:ex=1:"
-#export PAGER=jless
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000
@@ -11,8 +10,6 @@ MAILCHECK=300
 DIRSTACKSIZE=20
 ZLS_COLORS=$LS_COLORS
 WORDCHARS='*?~=!#$%^'
-
-fpath=(~/opt/share/zsh/functions $fpath)
 
 ## Search path for the cd command
 #cdpath=(.. ~ )
@@ -29,11 +26,6 @@ alias rm='nocorrect rm'
 alias mkdir='nocorrect mkdir'
 alias dpkg='nocorrect dpkg'
 
-#if whence jless > /dev/null;then alias less=jless;fi
-#if whence jgrep > /dev/null;then alias grep=jgrep;fi
-if whence xdvi-ja > /dev/null;then alias xdvi=xdvi-ja;fi
-
-#alias d='dirs -v'
 alias s='cd ..'
 alias p='cd -'
 alias j=jobs
@@ -43,11 +35,8 @@ alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
-#alias lsd='ls -ld *(-/DN)'
-#alias lsa='ls -ld .*'
 
 alias apt-get='sudo apt-get'
-alias cvscl='cvs2cl -r --stdout'
 
 alias -g L="|less"
 alias -g M="|more"
@@ -74,19 +63,11 @@ setopt nopromptcr
 setopt sharehistory
 
 #
-__git_files () {
-  local expl
-  _wanted files expl 'file' _files
-}
-
 autoload -U compinit
 compinit -u
 
 # ignore case
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-compdef _tex platex
-compdef _xdvi xdvi-ja
 
 # tty
 stty stop undef start undef
