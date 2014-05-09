@@ -55,6 +55,7 @@ setopt correct
 setopt extendedglob
 #setopt numericglobsort
 setopt histignorealldups
+setopt histignorespace
 #setopt noautoparamslash 
 setopt nohup
 setopt autopushd  pushdsilent pushdignoredups
