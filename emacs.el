@@ -14,7 +14,6 @@
 
 ;; key bind
 (define-key global-map "\C-o" 'toggle-input-method)
-(define-key global-map "\C-xk" 'kill-this-buffer)
 (define-key global-map "\C-x\C-b" 'electric-buffer-list)
 
 (define-key global-map "\C-ca" 'apropos)
@@ -28,7 +27,7 @@
 (define-key global-map "\C-ch" 'help-command)
 ;(define-key global-map "\C-ci" 'liece)
 ;(define-key global-map "\C-cj" 'imenu);
-;(define-key global-map "\C-ck" ')
+(define-key global-map "\C-ck" 'kill-this-buffer)
 (define-key global-map "\C-clf" 'elisp-info-describe-function)
 (define-key global-map "\C-cll" 'lookup)
 ;(define-key global-map "\C-cln" 'namazu)
