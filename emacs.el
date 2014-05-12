@@ -14,10 +14,9 @@
 
 ;; key bind
 (define-key global-map "\C-o" 'toggle-input-method)
-(define-key global-map "\C-x\C-b" 'electric-buffer-list)
 
 (define-key global-map "\C-ca" 'apropos)
-;(define-key global-map "\C-cb" 'iswitchb-buffer)
+(define-key global-map "\C-cb" 'electric-buffer-list)
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cd" 'calendar);
 (define-key global-map "\C-ce" 'eshell)
@@ -57,7 +56,7 @@
 (define-key global-map "\C-cy" 'cymemo)
 (define-key global-map "\C-cz" 'shell)
 
-;; C-h is backspace
+;; C-h is backspace, C-S-h is help-command
 (load "term/bobcat")
 (when (fboundp 'terminal-init-bobcat)
   (terminal-init-bobcat))
@@ -90,6 +89,7 @@
 (setq focus-follows-mouse nil)
 (setq custom-file "~/.emacs.d/custom.el")
 (setq split-width-threshold nil)
+(iswitchb-mode 1)
 
 ; Emacs does not exit promptly. The message "Saving clipboard to X clipboard manager..." is shown.
 (setq x-select-enable-clipboard t)
