@@ -64,27 +64,16 @@
 ;; face
 (unless window-system
   (setq frame-background-mode 'dark))
-(global-font-lock-mode 1)
 (set-face-foreground 'font-lock-comment-face "pink")
 
 ;; misc
-;(tooltip-mode 0)
-(auto-compression-mode 1)
-;(auto-image-file-mode 1)
-;(resize-minibuffer-mode 1)
-; (add-hook 'window-setup-hook
-; 	  (lambda ()
-; 	    (tool-bar-mode 0)))
 (setq make-backup-files nil)
-(setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
 (setq cursor-in-non-selected-windows nil)
 (setq truncate-partial-width-windows nil)
-;(setq view-read-only t)
-;(setq print-escape-newlines t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
-(setq apropos-do-all t)
 ;(partial-completion-mode t)
 (setq focus-follows-mouse nil)
 (setq custom-file "~/.emacs.d/custom.el")
@@ -94,11 +83,6 @@
 ; Emacs does not exit promptly. The message "Saving clipboard to X clipboard manager..." is shown.
 (setq x-select-enable-clipboard t)
 (setq x-select-enable-clipboard-manager nil)
-
-(when window-system
-  (set-scroll-bar-mode 'right)
-  (add-to-list 'initial-frame-alist
-	       '(reverse . t)))
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
