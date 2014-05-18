@@ -16,7 +16,8 @@
 (define-key global-map "\C-o" 'toggle-input-method)
 
 (define-key global-map "\C-ca" 'apropos)
-(define-key global-map "\C-cb" 'electric-buffer-list)
+;(define-key global-map "\C-cb" 'electric-buffer-list)
+(define-key global-map "\C-cb" 'helm-mini)
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cd" 'calendar);
 (define-key global-map "\C-ce" 'eshell)
