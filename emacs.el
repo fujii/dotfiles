@@ -234,6 +234,13 @@
 (setq woman-use-own-frame nil)
 (setq woman-use-topic-at-point t)
 
+;; auto-complete
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (when (require 'auto-complete-config nil t)
+	      (ac-config-default)
+	      (auto-complete-mode 1))))
+
 ;; wl
 (if (boundp 'mail-user-agent)
     (setq mail-user-agent 'wl-user-agent))
