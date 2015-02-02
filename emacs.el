@@ -209,9 +209,6 @@
 	      (setq calendar-holidays
 		    (append japanese-holidays local-holidays other-holidays)
 		    mark-holidays-in-calendar t))))
-(add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
-(add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend)
-(setq calendar-weekend '(0 6))
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
 ;; browse-url
