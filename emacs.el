@@ -105,9 +105,6 @@
 (require 'package)
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
-; Wanderlust
-(add-to-list 'package-archives
-  '("e6h" . "http://www.e6h.org/packages/"))
 
 ;; misc function
 
