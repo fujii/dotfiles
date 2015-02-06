@@ -229,6 +229,11 @@
 (setq woman-use-own-frame nil)
 (setq woman-use-topic-at-point t)
 
+;; helm
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (require 'helm-config)))
+
 ;; wl
 (if (boundp 'mail-user-agent)
     (setq mail-user-agent 'wl-user-agent))
