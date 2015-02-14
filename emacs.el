@@ -313,5 +313,5 @@
  ((require 'mozc nil t)
   (setq default-input-method "japanese-mozc")))
 
-(when (eq system-type 'windows-nt)
+(when (eq window-system 'w32)
   (setq w32-recognize-altgr nil))
