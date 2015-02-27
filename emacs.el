@@ -225,6 +225,10 @@
 (setq woman-use-own-frame nil)
 (setq woman-use-topic-at-point t)
 
+;; recentf
+(setq recentf-max-saved-items 500)
+(recentf-mode 1)
+
 ;; helm
 (add-hook 'after-init-hook
 	  (lambda ()
