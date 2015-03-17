@@ -1,23 +1,6 @@
-;;; dot.wl -- sample setting file for Wanderlust	-*- emacs-lisp -*-
-
-;; [[ Requirement Setting ]]
-
-;; Following must be included in ~/.emacs
-;; (No need if installed as XEmacs package.)
-;(autoload 'wl "wl" "Wanderlust" t)
-;(autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
-;(autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
-
-;; Icon directory
-;; (No need if installed as XEmacs package.)
-;(setq wl-icon-directory "/usr/local/lib/emacs/etc")
-
+;;; wl.el -- setting file for Wanderlust	-*- emacs-lisp -*-
 
 ;; [[ SEMI Setting ]]
-
-;; Disable inline display of HTML part.
-;; Put before load `mime-setup'
-(setq mime-setup-enable-inline-html nil)
 
 ;; Don't split large message.
 (setq mime-edit-split-message nil)
@@ -25,12 +8,23 @@
 ;; If lines of message are larger than this value, treat it as `large'.
 ;(setq mime-edit-message-default-max-lines 1000)
 
+;; Accept encoded-words in quoted-strings.
 (setq mime-header-accept-quoted-encoded-words t)
+
+;; text/html score
+;(setq mime-view-text/html-score 0)
+
+;; Show both parts text/plain and text/html. Treat multipart/alternative as multipart/mixed
+(require 'mime-view)
+(fset 'mime-display-multipart/alternative 'mime-display-multipart/mixed)
 
 ;;; [[ Private Setting ]]
 
 ;; Header From:
 (setq wl-from (concat user-full-name " <" user-mail-address ">"))
+
+;; Bcc:
+(setq wl-bcc user-mail-address)
 
 ;; If (system-name) does not return FQDN,
 ;; set following as a local domain name without hostname.
@@ -44,12 +38,12 @@
 	    ))
 
 ;; Subscribed mailing list.
-(setq wl-subscribed-mailing-list
-      '("wl@lists.airs.net"
-	"apel-ja@m17n.org"
-	"emacs-mime-ja@m17n.org"
-	;; "ml@example.com" ...
-	))
+;(setq wl-subscribed-mailing-list
+;      '("wl@lists.airs.net"
+;	"apel-ja@m17n.org"
+;	"emacs-mime-ja@m17n.org"
+;	;; "ml@example.com" ...
+;	))
 
 ;;; [[ Server Setting ]]
 
@@ -75,6 +69,7 @@
 
 ;;; [[ Basic Setting ]]
 
+;; Do not show demo
 (setq wl-demo nil)
 
 (setq wl-auto-uncheck-folder-list '("\\$.*" "-.*"))
@@ -89,7 +84,7 @@
 ;(setq wl-fcc "+outbox")
 
 ;; Confirm before exitting Wanderlust.
-(setq wl-interactive-exit t)
+(setq wl-interactive-exit nil)
 
 ;; Confirm before sending message.
 (setq wl-interactive-send t)
@@ -109,13 +104,6 @@
 ;; Open new frame for draft buffer.
 ;(setq wl-draft-use-frame t)
 
-;; Don't limit indent for thread view
-(setq wl-summary-indent-length-limit nil)
-(setq wl-summary-width nil)
-
-;; Divide thread by change of subject.
-;(setq wl-summary-divide-thread-when-subject-changed t)
-
 ;; Change format of thread view
 ;(setq wl-thread-indent-level 2)
 ;(setq wl-thread-have-younger-brother-str "+"
@@ -133,13 +121,34 @@
 ;; skip folder if there is no unread message.
 ;(setq wl-auto-select-next 'skip-no-unread)
 
-;; jump to unread message in 'N' or 'P'.
-;(setq wl-summary-move-order 'unread)
-
 ;; notify mail arrival
 ;(setq wl-biff-check-folder-list '("%inbox"))
 ;(setq wl-biff-notify-hook '(ding))
 
+
+;;; [[ wl-summary ]]
+
+;; Don't limit indent for thread view
+(setq wl-summary-indent-length-limit nil)
+(setq wl-summary-width nil)
+
+;; Do not hide "[mailing-list-name]" in Subject
+(setq wl-summary-subject-function 'identity)
+
+;; Divide thread by change of subject.
+(setq wl-summary-divide-thread-when-subject-changed t)
+
+;; jump to unread message in 'N' or 'P'.
+;(setq wl-summary-move-order 'unread)
+
+;; ML message displays ML name and ML sequence number in subject.
+(setq wl-summary-line-format "%n%T%P%M/%D(%W)%h:%m %t%[%17(%c %f%) %] %#%~%s")
+;; Set summary line format according to folder name.
+;(setq wl-folder-summary-line-format-alist
+;      '(("^%inbox\\.emacs\\.wl$" .
+;	 "%-5l%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")
+;	("^%" . "%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")
+;	("^+" . "%n%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")))
 
 ;;; [[ Network ]]
 
@@ -171,6 +180,12 @@
 ;	     (elmo-set-plugged plugged(t/nil) server)
 ;	     ))
 
+;; Update threshold.
+(setq elmo-folder-update-threshold 500)
+
+;; Fetch threshold.
+(setq elmo-message-fetch-threshold 1000000)
+
 
 ;;; [[ Special Setting ]]
 
@@ -198,22 +213,6 @@
 	"x-spam-flag"
 	;; Virtual field defined by `modb-entity-field-extractor-alist'
 	"ml-info"))
-
-;; ML message displays ML name and ML sequence number in subject.
-(setq wl-summary-line-format "%n%T%P%M/%D(%W)%h:%m %t%[%17(%c %f%) %] %#%~%s")
-;; Set summary line format according to folder name.
-;(setq wl-folder-summary-line-format-alist
-;      '(("^%inbox\\.emacs\\.wl$" .
-;	 "%-5l%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")
-;	("^%" . "%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")
-;	("^+" . "%n%T%P%M/%D %h:%m %-4S %[ %17f %] %t%C%s")))
-
-;; imput asynchronously.
-;; (utils/im-wl.el is needed to be installed.
-;;  Don't forget setting ~/.im/Config (Smtpservers).
-;;  note that wl-draft-enable-queuing is not valid.)
-;(autoload 'wl-draft-send-with-imput-async "im-wl")
-;(setq wl-draft-send-function 'wl-draft-send-with-imput-async)
 
 
 ;; non-verbose User-Agent: field
@@ -309,6 +308,9 @@
 
 ;;; [[ Message Display Settings ]]
 
+;; Break Pages at ^L.
+(setq wl-break-pages nil)
+
 ;; Displayed header field in message buffer.
 (setq wl-message-ignored-field-list
       '(""))
@@ -394,4 +396,4 @@
 ;	(append wl-auto-refile-guess-functions
 ;		'(wl-refile-guess-by-spam))))
 
-;;; dot.wl ends here
+;;; wl.el ends here
