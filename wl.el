@@ -136,13 +136,14 @@
 (setq wl-summary-subject-function 'identity)
 
 ;; Divide thread by change of subject.
-(setq wl-summary-divide-thread-when-subject-changed t)
+;; Do not turn on this because Bugzilla thread will be divided.
+;(setq wl-summary-divide-thread-when-subject-changed t)
 
 ;; jump to unread message in 'N' or 'P'.
 ;(setq wl-summary-move-order 'unread)
 
-;; ML message displays ML name and ML sequence number in subject.
-(setq wl-summary-line-format "%n%T%P%M/%D(%W)%h:%m %t%[%17(%c %f%) %] %#%~%s")
+;; 
+(setq wl-summary-line-format "%n%T%P%@%M/%D(%W)%h:%m %t%[%17(%c %f%) %] %~%s")
 ;; Set summary line format according to folder name.
 ;(setq wl-folder-summary-line-format-alist
 ;      '(("^%inbox\\.emacs\\.wl$" .
