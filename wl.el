@@ -50,7 +50,7 @@
 ;; Default POP server
 (setq elmo-pop3-default-server "localhost")
 ;; SMTP server
-(setq wl-smtp-posting-server "localhost")
+;(setq wl-smtp-posting-server "localhost")
 ;; Default NNTP server
 (setq elmo-nntp-default-server "news.gmane.org")
 ;; NNTP server name for posting
@@ -63,6 +63,22 @@
 (setq elmo-imap4-default-port 993)
 (setq elmo-imap4-default-stream-type 'ssl)
 
+;; GMail
+(setq wl-smtp-connection-type 'starttls
+      wl-smtp-posting-port 587
+      wl-smtp-authenticate-type "plain"
+      wl-smtp-posting-user user-mail-address
+      wl-smtp-posting-server "smtp.gmail.com"
+      wl-local-domain "gmail.com"
+      wl-message-id-domain "smtp.gmail.com")
+
+(setq elmo-imap4-default-server "imap.gmail.com"
+      elmo-imap4-default-user user-mail-address
+      elmo-imap4-default-authenticate-type 'clear
+      elmo-imap4-default-port '993
+      elmo-imap4-default-stream-type 'ssl)
+
+
 ;; POP-before-SMTP
 ;(setq wl-draft-send-mail-function 'wl-draft-send-mail-with-pop-before-smtp)
 
@@ -72,7 +88,7 @@
 ;; Do not show demo
 (setq wl-demo nil)
 
-(setq wl-auto-uncheck-folder-list '("\\$.*" "-.*"))
+(setq wl-auto-uncheck-folder-list '("\\$.*" "-.*" "%.*"))
 
 ;; Default folder for `wl-summary-goto-folder'.
 ;(setq wl-default-folder "+inbox")
