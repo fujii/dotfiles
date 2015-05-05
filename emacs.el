@@ -261,7 +261,8 @@
 (setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
 
 ;; magit
-(autoload 'magit-status "magit" nil t)
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (defface magit-item-highlight
   '((((class color) (background light))
      :background "gray95")
