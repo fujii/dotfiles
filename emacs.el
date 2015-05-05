@@ -250,12 +250,12 @@
 ;      '("~/usr/info" "~/usr/share/info"))
 
 ;; egg
-;(load "egg/leim-list")
-;(setq default-input-method "japanese-egg-anthy")
-;(setq its-hira-enable-zenkaku-alphabet nil)
+(setq its-hira-enable-zenkaku-alphabet nil)
 ;(setq its-hira-period ". ")
 ;(setq its-hira-comma  ", ")
-;(setq quail-japanese-use-double-n t)
+
+;; quail
+(setq quail-japanese-use-double-n t)
 
 ;; vc
 (setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
@@ -311,7 +311,11 @@
   (wrap-function-to-control-ime 'read-passwd t t) ; don't work as we expect.
   )
  ((require 'mozc nil t)
-  (setq default-input-method "japanese-mozc")))
+  (setq default-input-method "japanese-mozc"))
+ ((load "egg/leim-list" t)
+  (setq default-input-method "japanese-egg-anthy"))
+ ((require 'anthy nil t)
+  (setq default-input-method "japanese-anthy")))
 
 (when (eq window-system 'w32)
   (setq w32-recognize-altgr nil))
