@@ -253,6 +253,7 @@
 (setq its-hira-enable-zenkaku-alphabet nil)
 ;(setq its-hira-period ". ")
 ;(setq its-hira-comma  ", ")
+(setq anthy-egg-use-utf8 t)
 
 ;; quail
 (setq quail-japanese-use-double-n t)
