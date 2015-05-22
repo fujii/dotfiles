@@ -296,28 +296,31 @@
      (?\x2600 . ?\x26ff))))
 
 
-(cond
- ((fboundp 'w32-ime-initialize)
-  (setq default-input-method "W32-IME")
-  (setq-default w32-ime-mode-line-state-indicator "[--]")
-  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
-  (w32-ime-initialize)
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (cond
+    ((fboundp 'w32-ime-initialize)
+     (setq default-input-method "W32-IME")
+     (setq-default w32-ime-mode-line-state-indicator "[--]")
+     (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+     (w32-ime-initialize)
 
-  (wrap-function-to-control-ime 'y-or-n-p nil nil)
-  (wrap-function-to-control-ime 'yes-or-no-p nil nil)
-  (wrap-function-to-control-ime 'universal-argument t nil)
-  (wrap-function-to-control-ime 'read-string nil nil)
-  (wrap-function-to-control-ime 'read-from-minibuffer nil nil)
-  (wrap-function-to-control-ime 'read-key-sequence nil nil)
-  (wrap-function-to-control-ime 'map-y-or-n-p nil nil)
-  (wrap-function-to-control-ime 'read-passwd t t) ; don't work as we expect.
-  )
- ((require 'mozc nil t)
-  (setq default-input-method "japanese-mozc"))
- ((load "egg/leim-list" t)
-  (setq default-input-method "japanese-egg-anthy"))
- ((require 'anthy nil t)
-  (setq default-input-method "japanese-anthy")))
+     (wrap-function-to-control-ime 'y-or-n-p nil nil)
+     (wrap-function-to-control-ime 'yes-or-no-p nil nil)
+     (wrap-function-to-control-ime 'universal-argument t nil)
+     (wrap-function-to-control-ime 'read-string nil nil)
+     (wrap-function-to-control-ime 'read-from-minibuffer nil nil)
+     (wrap-function-to-control-ime 'read-key-sequence nil nil)
+     (wrap-function-to-control-ime 'map-y-or-n-p nil nil)
+     (wrap-function-to-control-ime 'read-passwd t t) ; don't work as we expect.
+     )
+    ((require 'mozc)
+     (setq default-input-method "japanese-mozc"))
+    ((load "egg/leim-list" t)
+     (setq default-input-method "japanese-egg-anthy"))
+    ((require 'anthy nil t)
+     (setq default-input-method "japanese-anthy")))))
 
 (when (eq window-system 'w32)
   (setq w32-recognize-altgr nil))
