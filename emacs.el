@@ -252,6 +252,12 @@
 ;; quail
 (setq quail-japanese-use-double-n t)
 
+;; Google Japanese IME
+(when (memq system-type '(windows-nt cygwin))
+  (defadvice mozc-session-execute-command (after ad-mozc-session-execute-command activate)
+    (if (eq (ad-get-arg 0) 'CreateSession)
+	(mozc-session-sendkey '(hiragana)))))
+
 ;; vc
 (setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
 
