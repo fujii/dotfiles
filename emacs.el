@@ -13,7 +13,7 @@
 
 ;(define-key global-map "\C-ca" 'apropos)
 ;(define-key global-map "\C-cb" 'electric-buffer-list)
-(define-key global-map "\C-cb" 'helm-mini)
+(define-key global-map "\C-cb" 'anything-mini)
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cd" 'calendar);
 ;(define-key global-map "\C-ce" 'eshell)
@@ -228,11 +228,6 @@
 ;; recentf
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
-
-;; helm
-(add-hook 'after-init-hook
-	  (lambda ()
-	    (require 'helm-config)))
 
 ;; wl
 (if (boundp 'mail-user-agent)
