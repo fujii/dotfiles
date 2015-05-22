@@ -123,8 +123,12 @@
 (defun dired-custom-execute-file (&optional arg)
   (interactive "P")
   (mapcar (lambda (file)
-	    (call-process (if (eq system-type 'windows-nt) "explorer" "xdg-open")
-			  nil nil nil (convert-standard-filename file)))
+	    (let ((prog (cond
+			 ((eq system-type 'windows-nt) "explorer")
+			 ((eq system-type 'cygwin) "cygstart")
+			 (t "xdg-open"))))
+	      (call-process prog
+			    nil nil nil (convert-standard-filename file))))
 	  (dired-get-marked-files nil arg)))
 
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map "X" 'dired-custom-execute-file)))
