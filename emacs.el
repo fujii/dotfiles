@@ -75,7 +75,6 @@
 (setq focus-follows-mouse nil)
 (setq custom-file "~/.emacs.d/custom.el")
 (setq split-width-threshold nil)
-(iswitchb-mode 1)
 
 ; Emacs does not exit promptly. The message "Saving clipboard to X clipboard manager..." is shown.
 (setq x-select-enable-clipboard t)
