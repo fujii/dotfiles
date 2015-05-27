@@ -97,7 +97,7 @@
 ;(setenv "PAGER" "cat")
 
 ;; package
-(require 'package)
+(package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
