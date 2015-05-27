@@ -14,7 +14,7 @@ WORDCHARS='*?~=!#$%^'
 ## Search path for the cd command
 #cdpath=(.. ~ )
 # Filename suffixes to ignore during completion
-fignore=(.o .~ .old .pro )
+#fignore=(.o .~ .old .pro )
 ## Hosts to use for completion
 #hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 
