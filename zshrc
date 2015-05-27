@@ -31,6 +31,12 @@ alias p='cd -'
 alias j=jobs
 alias h=history
 
+if test "$OSTYPE" = cygwin;then
+    alias x=cygstart
+else
+    alias x=xdg-open
+fi
+
 alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
