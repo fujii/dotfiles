@@ -230,6 +230,7 @@
 
 ;; recentf
 (setq recentf-max-saved-items 500)
+(setq recentf-auto-cleanup 60)
 (recentf-mode 1)
 
 ;; helm
