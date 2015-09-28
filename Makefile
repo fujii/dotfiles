@@ -29,7 +29,6 @@ test:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/test/test.sh
 
 install: deploy init
-	@exec $$SHELL
 
 clean:
 	@echo 'Remove dot files in your home directory...'
