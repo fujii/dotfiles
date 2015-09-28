@@ -10,7 +10,6 @@ help:
 	@echo "make deploy         #=> Create symlink to home directory"
 	@echo "make init           #=> Setup environment settings"
 	@echo "make test           #=> Test dotfiles and init scripts"
-	@echo "make update         #=> Fetch changes for this repo"
 	@echo "make install        #=> Run make update, deploy, init"
 	@echo "make clean          #=> Remove the dot files and this repo"
 
@@ -29,13 +28,7 @@ init:
 test:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/test/test.sh
 
-update:
-	git pull origin master
-	git submodule init
-	git submodule update
-	git submodule foreach git pull origin master
-
-install: update deploy init
+install: deploy init
 	@exec $$SHELL
 
 clean:
