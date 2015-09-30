@@ -41,22 +41,25 @@ define gen_target_rules_1
 $(call gen_target_rules_2,$1,$2,$(wildcard $2.sh),$(wildcard $2*) ${addition_depends})
 endef
 
+# $1: ${HOME}/.foo
+# $2: foo
+# $3: foo.sh
+# $4: foo* ${addition_depends}
 define gen_target_rules_2
-$(if $3,$(call gen_target_rules_sh,$1,$2,$3,$4),$(call gen_target_rules_simple,$1,$2,$4))
+all : $1
+$1 : $4
+$(if $3,$(call gen_target_rules_sh,$3),$(call gen_target_rules_simple,$2))
+
 endef
 
 define gen_target_rules_sh
-all : $1
-$1 : $4
 	-$$(RM) $$@
-	$$(SHELL) $3 > $$@
+	$$(SHELL) $1 > $$@
 	chmod 400 $$@
 endef
 
 define gen_target_rules_simple
-all : $1
-$1 : $3
-	install -T -m 400 $2 $$@
+	install -T -m 400 $1 $$@
 endef
 
 define blank_line
