@@ -11,6 +11,7 @@ export imap_server :=
 define targets
     .aspell.conf
     .emacs.el
+    .gitconfig
     .wl.el
     .zshrc
 endef

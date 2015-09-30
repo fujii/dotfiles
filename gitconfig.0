@@ -1,0 +1,13 @@
+[push]
+	default = simple
+
+[alias]
+	logg = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	stt = status -uno
+	di = diff
+	dis = diff --staged
+
