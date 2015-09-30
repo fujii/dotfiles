@@ -12,6 +12,7 @@ define targets
     .aspell.conf
     .emacs.el
     .gitconfig
+    .profile
     .wl.el
     .zshrc
 endef
