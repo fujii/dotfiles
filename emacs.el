@@ -267,9 +267,6 @@
     (if (eq (ad-get-arg 0) 'CreateSession)
 	(mozc-session-sendkey '(hiragana)))))
 
-;; vc
-(setq vc-handled-backends '(RCS CVS SVN SCCS Bzr Hg Mtn Arch)) ; Remove Git
-
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
