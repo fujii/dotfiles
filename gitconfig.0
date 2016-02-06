@@ -11,3 +11,5 @@
 	di = diff
 	dis = diff --staged
 
+[merge]
+	conflictStyle = diff3
