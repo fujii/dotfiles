@@ -14,10 +14,6 @@
 ;; text/html score
 ;(setq mime-view-text/html-score 0)
 
-;; Show both parts text/plain and text/html. Treat multipart/alternative as multipart/mixed
-(require 'mime-view)
-(fset 'mime-display-multipart/alternative 'mime-display-multipart/mixed)
-
 ;;; [[ Private Setting ]]
 
 ;; Header From:
