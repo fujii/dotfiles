@@ -14,3 +14,9 @@
 
 [merge]
 	conflictStyle = diff3
+
+[diff]
+	submodule = log
+
+[credential]
+	helper = store
