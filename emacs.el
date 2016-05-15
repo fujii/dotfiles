@@ -157,6 +157,9 @@
               (c-offsets-alist
                (case-label . +))))
 
+(when (require 'google-c-style nil t)
+  (c-add-style "google" google-c-style))
+
 (defvar local-cc-mode-style-alist
   '(("webkit" . "webkit")))
 
