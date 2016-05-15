@@ -233,6 +233,9 @@
 (setq recentf-auto-cleanup 60)
 (recentf-mode 1)
 
+;; editorconfig
+(editorconfig-mode 1)
+
 ;; helm
 (require 'helm-files nil t)
 (require 'helm-config nil t)
