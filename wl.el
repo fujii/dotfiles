@@ -409,4 +409,6 @@
 ;	(append wl-auto-refile-guess-functions
 ;		'(wl-refile-guess-by-spam))))
 
+(load "~/.wl-local.el" t)
+
 ;;; wl.el ends here
