@@ -141,9 +141,6 @@
 
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map "X" 'dired-custom-execute-file)))
 
-;; electric-bufffer-list
-(add-hook 'electric-buffer-menu-mode-hook 'forward-line)
-
 ;; compile
 (setq compilation-window-height 15)
 (setq compilation-read-command nil)
