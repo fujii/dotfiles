@@ -101,6 +101,13 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
+(package-install 'cp5022x)
+(package-install 'editorconfig)
+(package-install 'helm)
+(package-install 'japanese-holidays)
+(package-install 'markdown-mode)
+(package-install 'wanderlust)
+
 ;; misc function
 
 (defun FUJII-scratch ()
