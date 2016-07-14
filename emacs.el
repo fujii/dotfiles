@@ -90,8 +90,9 @@
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
     (let* ((my-lisp-dir "~/opt/share/emacs/site-lisp")
 	   (default-directory my-lisp-dir))
-      (setq load-path (cons my-lisp-dir load-path))
-      (normal-top-level-add-subdirs-to-load-path)))
+      (when (file-exists my-lisp-dir)
+	(setq load-path (cons my-lisp-dir load-path))
+	(normal-top-level-add-subdirs-to-load-path))))
 
 ;; env
 ;(setenv "PAGER" "cat")
