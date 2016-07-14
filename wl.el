@@ -14,6 +14,10 @@
 ;; text/html score
 ;(setq mime-view-text/html-score 0)
 
+;; Treat iso-2022-jp as cp50220 for Outlook
+(when (require 'cp5022x nil t)
+  (add-to-list 'mime-charset-coding-system-alist '(iso-2022-jp . cp50220)))
+
 ;;; [[ Private Setting ]]
 
 ;; Header From:
