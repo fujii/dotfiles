@@ -102,12 +102,15 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
-(package-install 'cp5022x)
-(package-install 'editorconfig)
-(package-install 'helm)
-(package-install 'japanese-holidays)
-(package-install 'markdown-mode)
-(package-install 'wanderlust)
+(let ((packages '(cp5022x
+		  editorconfig
+		  helm
+		  japanese-holidays
+		  markdown-mode
+		  wanderlust)))
+  (when (memq nil (mapcar 'package-installed-p packages))
+    (package-refresh-contents)
+    (mapcar 'package-install packages)))
 
 ;; misc function
 
