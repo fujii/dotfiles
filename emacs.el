@@ -213,13 +213,21 @@
 
 
 ;; calendar
-(add-hook 'calendar-load-hook
-	  (lambda ()
-	    (when (require 'japanese-holidays nil t)
-	      (setq calendar-holidays
-		    (append japanese-holidays local-holidays other-holidays)
-		    mark-holidays-in-calendar t))))
-(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+(when (< emacs-major-version 25)
+  (add-hook 'calendar-load-hook
+	    (lambda ()
+	      (when (require 'japanese-holidays nil t)
+		(setq calendar-holidays
+		      (append japanese-holidays local-holidays other-holidays)
+		      mark-holidays-in-calendar t))))
+  (add-hook 'today-visible-calendar-hook 'calendar-mark-today))
+(when (>= emacs-major-version 25)
+  (add-hook 'calendar-load-hook
+	    (lambda ()
+	      (when (require 'japanese-holidays nil t)
+		(setq calendar-holidays japanese-holidays)
+		(setq calendar-mark-holidays-flag t))
+	      (add-hook 'calendar-today-visible-hook 'calendar-mark-today))))
 
 ;; browse-url
 (setq browse-url-generic-program "xdg-open")
