@@ -95,3 +95,7 @@ else
     PS1=$'%{\e[1m%}'$PS1$'%{\e[0m%}'
     RPS1=' %~'
 fi
+
+if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
+fi
