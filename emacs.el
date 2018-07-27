@@ -240,8 +240,16 @@
 ;; shell
 (add-hook 'shell-mode-hook
 	  (lambda ()
+	    (local-set-key "\M-p" 'comint-previous-matching-input-from-input)
+	    (local-set-key "\M-n" 'comint-next-matching-input-from-input)
+	    (setq comint-input-ring-file-name "~/.zsh_history")
+	    ;; For EXTENDED_HISTORY format
+	    (setq comint-input-ring-separator "\n\\(: [0-9]+:[0-9]+;\\)?")
+	    (comint-read-input-ring t)
 	    (process-kill-without-query 
 	     (get-buffer-process (current-buffer)))))
+
+(setq comint-input-ring-size 10000)
 
 ;; woman
 (setq woman-use-own-frame nil)
