@@ -238,6 +238,16 @@
        ((memq system-type '(darwin)) 'browse-url-default-macosx-browser)
        (t 'browse-url-generic)))
 
+
+;; eww
+(setq eww-search-prefix "https://duckduckgo.com/lite/?q=")
+
+;; shr
+(setq shr-use-colors nil)
+
+;; midnight-mode
+(midnight-mode t)
+
 ;; shell
 (add-hook 'shell-mode-hook
 	  (lambda ()
