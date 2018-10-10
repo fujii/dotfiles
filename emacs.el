@@ -198,19 +198,7 @@
 
 
 ;; show-paren-mode
-(eval-after-load "paren"
-  '(set-face-background 'show-paren-match-face "navy"))
-(make-variable-buffer-local 'show-paren-mode)
-
-(dolist (hook
-	 '(lisp-mode-hook
-	   emacs-lisp-mode-hook ;lisp-interaction-mode-hook
-	   scheme-mode-hook
-	   inferior-scheme-mode-hook
-	   ;guile-scheme-mode-hook
-	   ))
-  (add-hook hook
-	    (lambda () (show-paren-mode 1))))
+(show-paren-mode 1)
 
 
 ;; calendar
