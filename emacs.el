@@ -58,10 +58,9 @@
 (when (fboundp 'terminal-init-bobcat)
   (terminal-init-bobcat))
 
-;; face
-(unless window-system
-  (setq frame-background-mode 'dark))
-(set-face-foreground 'font-lock-comment-face "pink")
+;; theme
+;(load-theme (if window-system 'deeper-blue 'wombat))
+(load-theme 'manoj-dark)
 
 ;; misc
 (setq make-backup-files nil)
