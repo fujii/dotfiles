@@ -58,9 +58,13 @@
 (when (fboundp 'terminal-init-bobcat)
   (terminal-init-bobcat))
 
-;; theme
-;(load-theme (if window-system 'deeper-blue 'wombat))
-(load-theme 'manoj-dark)
+;; face
+(setq frame-background-mode 'dark)
+
+(let ((class '((class color))))
+  (custom-theme-set-faces
+   'user
+   `(default ((,class (:background "#242424" :foreground "#f6f3e8"))))))
 
 ;; misc
 (setq make-backup-files nil)
