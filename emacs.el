@@ -203,23 +203,13 @@
 ;; show-paren-mode
 (show-paren-mode 1)
 
-
 ;; calendar
-(when (< emacs-major-version 25)
-  (add-hook 'calendar-load-hook
-	    (lambda ()
-	      (when (require 'japanese-holidays nil t)
-		(setq calendar-holidays
-		      (append japanese-holidays local-holidays other-holidays)
-		      mark-holidays-in-calendar t))))
-  (add-hook 'today-visible-calendar-hook 'calendar-mark-today))
-(when (>= emacs-major-version 25)
-  (add-hook 'calendar-load-hook
-	    (lambda ()
-	      (when (require 'japanese-holidays nil t)
-		(setq calendar-holidays japanese-holidays)
-		(setq calendar-mark-holidays-flag t))
-	      (add-hook 'calendar-today-visible-hook 'calendar-mark-today))))
+(add-hook 'calendar-load-hook
+	  (lambda ()
+	    (when (require 'japanese-holidays nil t)
+	      (setq calendar-holidays japanese-holidays)
+	      (setq calendar-mark-holidays-flag t))
+	    (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
 
 ;; browse-url
 (setq browse-url-generic-program "xdg-open")
@@ -383,29 +373,7 @@
   "Face for highlighting the current item."
   :group 'magit)
 
-;; UTF-8
-(when (fboundp 'utf-translate-cjk-set-unicode-range)
-  (utf-translate-cjk-set-unicode-range
-   '((?\x2e80 . ?\xd7a3)
-     (?\xff00 . ?\xffef)
-     (?\xa7 . ?\xa7)
-     (?\xb0 . ?\xb1)
-     (?\xb4 . ?\xb4)
-     (?\xb6 . ?\xb6)
-     (?\xd7 . ?\xd7)
-     (?\xf7 . ?\xf7)
-     (?\x370 . ?\x3ff)
-     (?\x400 . ?\x4ff)
-     (?\x2000 . ?\x206f)
-     (?\x2103 . ?\x2103)
-     (?\x212b . ?\x212b)
-     (?\x2190 . ?\x21ff)
-     (?\x2200 . ?\x22ff)
-     (?\x2300 . ?\x23ff)
-     (?\x2500 . ?\x257f)
-     (?\x25a0 . ?\x25ff)
-     (?\x2600 . ?\x26ff))))
-
+;; input method
 (cond
  ((fboundp 'w32-ime-initialize)
   (setq default-input-method "W32-IME")
