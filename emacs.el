@@ -326,7 +326,8 @@
 (recentf-mode 1)
 
 ;; editorconfig
-(editorconfig-mode 1)
+(when (require 'editorconfig nil t)
+  (editorconfig-mode 1))
 
 ;; helm
 (require 'helm-files nil t)
