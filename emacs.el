@@ -269,7 +269,7 @@
                                current-prefix-arg)
                            (read-from-minibuffer "Run program: " default-prog)
                          default-prog))))
-
+  (require 'term)
   ;; Pick the name of the new buffer.
   (setq term-ansi-buffer-name
         (if new-buffer-name
