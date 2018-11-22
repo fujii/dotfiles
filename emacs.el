@@ -244,6 +244,7 @@
 (setq comint-input-ring-size 10000)
 
 ;; term-mode https://www.emacswiki.org/emacs/AnsiTermHints
+(require 'term)
 (defun term/shell (program &optional new-buffer-name)
   "Start a terminal-emulator in a new buffer.
 
@@ -269,7 +270,6 @@
                                current-prefix-arg)
                            (read-from-minibuffer "Run program: " default-prog)
                          default-prog))))
-  (require 'term)
   ;; Pick the name of the new buffer.
   (setq term-ansi-buffer-name
         (if new-buffer-name
