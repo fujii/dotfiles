@@ -110,8 +110,7 @@
 		  editorconfig
 		  helm
 		  japanese-holidays
-		  markdown-mode
-		  wanderlust)))
+		  markdown-mode)))
   (when (memq nil (mapcar 'package-installed-p packages))
     (package-refresh-contents)
     (mapcar 'package-install packages)))
