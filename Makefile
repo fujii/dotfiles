@@ -1,4 +1,4 @@
-os := $(shell uname -o)
+os := $(shell uname -s)
 
 export user_name := Fujii Hironori
 export user_email := fujii.hironori@gmail.com
@@ -17,7 +17,7 @@ define targets
     .zshrc
 endef
 
-ifneq (${os},Cygwin)
+ifeq (${os},Linux)
 define targets +=
     .Xmodmap
     .Xresources
@@ -60,7 +60,7 @@ define gen_target_rules_sh
 endef
 
 define gen_target_rules_simple
-	install -T -m 400 $1 $$@
+	install -m 400 $1 $$@
 endef
 
 define blank_line
