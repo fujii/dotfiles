@@ -31,7 +31,15 @@ alias p='cd -'
 alias j=jobs
 alias h=history
 
-alias ls='ls -F --color=auto'
+case  "${OSTYPE}"  in
+    darwin*)
+	alias ls='ls -FG'
+    ;;
+    *)
+	alias ls='ls -F --color=auto'
+    ;;
+esac
+	      
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
