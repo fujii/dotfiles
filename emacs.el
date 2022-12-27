@@ -1,5 +1,3 @@
-;;; -*- mode: emacs-lisp; coding: iso-2022-jp -*-;;;
-
 ;; user
 (setq user-mail-address "fujii.hironori@gmail.com")
 (setq user-full-name "Fujii Hironori")
@@ -15,7 +13,7 @@
 ;(define-key global-map "\C-cb" 'electric-buffer-list)
 (define-key global-map "\C-cb" 'helm-mini)
 (define-key global-map "\C-cc" 'compile)
-(define-key global-map "\C-cd" 'calendar);
+(define-key global-map "\C-cd" 'calendar)
 ;(define-key global-map "\C-ce" 'eshell)
 ;(define-key global-map "\C-cf" 'elisp-info-describe-function)
 (define-key global-map "\C-cg" 'grep)
@@ -31,12 +29,12 @@
 ;(define-key global-map "\C-clr" 'lookup-region)
 ;(define-key global-map "\C-clv" 'elisp-info-describe-variable)
 ;(define-key global-map "\C-clw" 'lookup-word)
-(define-key global-map "\C-cm" 'wl)
-(define-key global-map "\C-cn" 'navi2ch)
+(define-key global-map "\C-cm" 'man)
+;(define-key global-map "\C-cn" 'navi2ch)
 (define-key global-map "\C-co" 'occur)
 (define-key global-map "\C-cq" 'query-replace-regexp)
-;(define-key global-map "\C-cr" 'man);
-(define-key global-map "\C-cs" 'FUJII-scratch)
+;(define-key global-map "\C-cr" 'man)
+(define-key global-map "\C-cs" 'my-scratch)
 (define-key global-map "\C-cte" 'toggle-debug-on-error)
 (define-key global-map "\C-ctl" 'toggle-truncate-lines)
 (define-key global-map "\C-cto" 'overwrite-mode)
@@ -47,7 +45,7 @@
 ;(define-key global-map "\C-cu" ')
 ;(define-key global-map "\C-cv" 'elisp-info-describe-variable)
 ;(define-key global-map "\C-cva" 'ahg-status)
-(define-key global-map "\C-cvm" 'magit-status)
+;(define-key global-map "\C-cvm" 'magit-status)
 (define-key global-map "\C-cw" 'eww)
 ;(define-key global-map "\C-cx" ')
 (define-key global-map "\C-cy" 'cymemo)
@@ -102,22 +100,20 @@
 ;(setenv "PAGER" "cat")
 
 ;; package
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
-(let ((packages '(cp5022x
-		  editorconfig
-		  helm
-		  japanese-holidays
-		  markdown-mode)))
+(let ((packages '(helm
+		  japanese-holidays)))
   (when (memq nil (mapcar 'package-installed-p packages))
     (package-refresh-contents)
     (mapcar 'package-install packages)))
 
 ;; misc function
 
-(defun FUJII-scratch ()
+(defun my-scratch ()
   "Switch to the buffer *scratch*."
   (interactive)
   (let ((default-major-mode 'lisp-interaction-mode)
@@ -378,7 +374,7 @@
  ((fboundp 'w32-ime-initialize)
   (setq default-input-method "W32-IME")
   (setq-default w32-ime-mode-line-state-indicator "[--]")
-  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[$B$"(B]" "[--]"))
+  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
   (w32-ime-initialize)
 
   (wrap-function-to-control-ime 'y-or-n-p nil nil)
