@@ -186,6 +186,7 @@
 (add-hook 'c++-mode-hook 'local-cc-mode-hook)
 
 ;; diff-mode
+(setq diff-font-lock-syntax nil)
 (add-hook 'diff-mode-hook
 	  (lambda ()
 	    (define-key diff-mode-map "\e" nil)))
