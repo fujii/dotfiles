@@ -400,3 +400,7 @@
 ;; server
 (setenv "EDITOR" "emacsclient")
 (server-start)
+
+;; treesit-auto
+(when (require 'treesit-auto nil t)
+  (global-treesit-auto-mode 1))
