@@ -396,3 +396,7 @@
 
 (when (eq window-system 'w32)
   (setq w32-recognize-altgr nil))
+
+;; server
+(setenv "EDITOR" "emacsclient")
+(server-start)
