@@ -100,6 +100,7 @@
 ;(setenv "PAGER" "cat")
 
 ;; package
+(require 'package)
 (when (< emacs-major-version 27)
   (package-initialize))
 (add-to-list 'package-archives
