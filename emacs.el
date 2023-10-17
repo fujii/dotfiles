@@ -130,16 +130,13 @@
 
 
 ;; dired
-(defun dired-custom-execute-file (&optional arg)
-  (interactive "P")
-  (mapcar (lambda (file)
-	    (let ((prog (cond
-			 ((eq system-type 'windows-nt) "explorer")
-			 ((eq system-type 'cygwin) "cygstart")
-			 (t "xdg-open"))))
-	      (call-process prog
-			    nil nil nil (convert-standard-filename file))))
-	  (dired-get-marked-files nil arg)))
+(defun dired-custom-execute-file (&optional arg file-list)
+  (interactive (list current-prefix-arg (dired-get-marked-files t current-prefix-arg nil nil t)))
+  (let ((prog (cond
+	       ((eq system-type 'windows-nt) "explorer")
+	       ((eq system-type 'cygwin) "cygstart")
+	       (t "xdg-open"))))
+    (dired-do-shell-command prog arg file-list)))
 
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map "X" 'dired-custom-execute-file)))
 
