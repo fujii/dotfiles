@@ -11,7 +11,6 @@
 
 ;(define-key global-map "\C-ca" 'apropos)
 ;(define-key global-map "\C-cb" 'electric-buffer-list)
-(define-key global-map "\C-cb" 'helm-mini)
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cd" 'calendar)
 ;(define-key global-map "\C-ce" 'eshell)
@@ -20,7 +19,7 @@
 (define-key global-map "\C-cG" 'grep-find)
 (define-key global-map "\C-ch" 'help-command)
 (define-key global-map "\C-ci" 'term/shell)
-(define-key global-map "\C-cj" 'helm-show-kill-ring)
+(define-key global-map "\C-cj" 'yank-from-kill-ring)
 (define-key global-map "\C-ck" 'kill-this-buffer)
 ;(define-key global-map "\C-clf" 'elisp-info-describe-function)
 ;(define-key global-map "\C-cll" 'lookup)
@@ -33,7 +32,7 @@
 ;(define-key global-map "\C-cn" 'navi2ch)
 (define-key global-map "\C-co" 'occur)
 (define-key global-map "\C-cq" 'query-replace-regexp)
-;(define-key global-map "\C-cr" 'man)
+(define-key global-map "\C-cr" 'recentf-open)
 (define-key global-map "\C-cs" 'my-scratch)
 (define-key global-map "\C-cte" 'toggle-debug-on-error)
 (define-key global-map "\C-ctl" 'toggle-truncate-lines)
@@ -106,11 +105,6 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
-(let ((packages '(helm
-		  japanese-holidays)))
-  (when (memq nil (mapcar 'package-installed-p packages))
-    (package-refresh-contents)
-    (mapcar 'package-install packages)))
 
 ;; misc function
 
@@ -323,9 +317,8 @@
 (when (require 'editorconfig nil t)
   (editorconfig-mode 1))
 
-;; helm
-(require 'helm-files nil t)
-(require 'helm-config nil t)
+;; fido
+(fido-vertical-mode 1)
 
 ;; wl
 (if (boundp 'mail-user-agent)
