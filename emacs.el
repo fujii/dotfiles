@@ -105,6 +105,11 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 
+(defun my-install-favorite-packages (&rest packages)
+  (interactive (read (read-string "Packages to install: " "(japanese-holidays)")))
+  (when (memq nil (mapcar 'package-installed-p packages))
+    (package-refresh-contents)
+    (mapcar 'package-install packages))))
 
 ;; misc function
 
