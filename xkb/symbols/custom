@@ -1,0 +1,7 @@
+partial modifier_keys
+xkb_symbols "fujii" {
+  key <MUHE> { [ Control_L ] };
+  key <HENK> { [ Control_R ] };
+  modifier_map Control { <MUHE>, <HENK> };
+  key <HKTG> { [ Alt_R ] };
+};

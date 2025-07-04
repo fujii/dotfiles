@@ -1,0 +1,5 @@
+! option = symbols
+  custom:fujii = +custom(fujii)
+
+// Include the system 'evdev' file
+! include %S/evdev
