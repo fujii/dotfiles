@@ -1,4 +1,4 @@
-;; user
+;; user  -*- lexical-binding: t; -*-
 (setq user-mail-address "fujii.hironori@gmail.com")
 (setq user-full-name "Fujii Hironori")
 
