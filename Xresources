@@ -11,6 +11,6 @@ XTerm*customization:
 
 emacs*menuBar: off
 emacs*toolBar: off
-emacs*font: fontset-standard
+emacs*font: Noto Sans Mono-12
 emacs*reverseVideo: on
 emacs*Geometry: 165x60
