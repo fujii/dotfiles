@@ -2,9 +2,6 @@ os := $(shell uname -s)
 
 export user_name := Fujii Hironori
 export user_email := fujii.hironori@gmail.com
-export http_proxy :=
-export smtp_server :=
-export imap_server :=
 
 -include local.mk
 
@@ -13,7 +10,6 @@ define targets
     .emacs.el
     .gitconfig
     .profile
-    .wl.el
     .zshrc
 endef
 
