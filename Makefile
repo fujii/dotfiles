@@ -24,6 +24,16 @@ define targets +=
 endef
 endif
 
+# Only inside the wkdev container (webkit-container-sdk)
+ifneq ($(wildcard /wkdev-sdk),)
+define targets +=
+    .wkdev-firstrun
+endef
+endif
+
+# Per-file install mode (default: 400)
+mode_wkdev-firstrun := 500
+
 addition_depends := $(MAKEFILE_LIST) $(wildcard local.mk)
 
 ifeq (${HOME},)
@@ -60,7 +70,7 @@ define gen_target_rules_sh
 endef
 
 define gen_target_rules_simple
-	install -m 400 $1 $$@
+	install -m $$(or $${mode_$1},400) $1 $$@
 endef
 
 define blank_line

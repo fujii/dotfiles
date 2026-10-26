@@ -1,0 +1,29 @@
+#!/bin/bash
+
+sudo ln -sf /usr/bin/gnuls /usr/bin/ls
+
+sudo apt-get install -y emacs-mozc
+sudo apt-get install -y glab
+sudo apt-get install -y epiphany-browser
+sudo apt-get install -y npm
+sudo apt-get install -y atool dos2unix git-lfs
+sudo apt-get install -y socat wl-clipboard lsof fd-find tree shellcheck tmux sqlite3 w3m html2text
+sudo apt-get install -y wget curl
+
+# for wig
+sudo apt-get install -y valac libgirepository-2.0-dev 
+
+# latest gh
+(sudo mkdir -p -m 755 /etc/apt/keyrings \
+  && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+  && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+  && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+  && sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+  && sudo apt update \
+  && sudo apt install gh -y
+
+# Claude Desktop
+sudo curl -fsSLo /usr/share/keyrings/claude-desktop-archive-keyring.asc https://downloads.claude.ai/claude-desktop/key.asc
+echo "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/claude-desktop-archive-keyring.asc] https://downloads.claude.ai/claude-desktop/apt/stable stable main" | sudo tee /etc/apt/sources.list.d/claude-desktop.list
+sudo apt-get update && sudo apt-get install -y claude-desktop
